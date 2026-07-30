@@ -1,0 +1,43 @@
+/* ---------------- Stats strip (dark, below hero) ---------------- */
+.stats-strip {
+  background: var(--navy);
+  padding: 64px 0;
+}
+.stats-strip .container {
+  display: flex;
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.stat-item:last-child {
+  border-right: none;
+}
+.stat-item .num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 24px;
+  color: var(--gold);
+}
+.stat-item .label {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: rgba(253, 252, 245, 0.6);
+}
+
+@media (max-width: 768px) {
+  .stats-strip { padding: 56px 0; }
+  .stats-strip .container { flex-wrap: wrap; gap: 24px; }
+  .stat-item {
+    flex: 1 1 40%;
+    border-right: none;
+  }
+}
