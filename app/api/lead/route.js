@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const data = await request.json();
-    
-    const crmUrl = process.env.NEXT_PUBLIC_CRM_API_URL;
+
+    const crmUrl = process.env.TELECRM_API_URL;
     const token = process.env.TELECRM_AUTH_TOKEN;
-    
+
     if (!crmUrl || !token) {
       console.error('Missing CRM API URL or Auth Token in environment variables');
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
