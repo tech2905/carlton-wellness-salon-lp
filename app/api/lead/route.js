@@ -12,6 +12,10 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
     }
 
+    console.log('\n--- 🚀 TELECRM SUBMISSION DEBUG ---');
+    console.log('🔗 URL:', crmUrl);
+    console.log('📦 PAYLOAD:', JSON.stringify(data, null, 2));
+
     const response = await fetch(crmUrl, {
       method: 'POST',
       headers: {
@@ -21,8 +25,13 @@ export async function POST(request) {
       body: JSON.stringify(data),
     });
 
+    console.log('🟢 RESPONSE STATUS:', response.status, response.statusText);
+
     if (response.ok) {
       const resultText = await response.text();
+      console.log('✅ RESPONSE BODY (SUCCESS):', resultText);
+      console.log('----------------------------------\n');
+      
       let resultData;
       try {
         resultData = JSON.parse(resultText);
@@ -32,7 +41,8 @@ export async function POST(request) {
       return NextResponse.json({ success: true, data: resultData });
     } else {
       const errorText = await response.text();
-      console.error('CRM API Error:', errorText);
+      console.error('❌ RESPONSE BODY (ERROR):', errorText);
+      console.log('----------------------------------\n');
       return NextResponse.json({ error: 'Failed to submit to CRM' }, { status: response.status });
     }
   } catch (error) {
