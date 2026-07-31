@@ -1,11 +1,9 @@
 "use client";
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function Hero() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +34,7 @@ export default function Hero() {
       });
 
       if (response.ok) {
-        router.push('/thank-you');
+        window.location.href = '/thank-you';
       } else {
         setMessage('Failed to submit. Please try again.');
       }
