@@ -1,5 +1,6 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ThankYouTracker from '../../components/ThankYouTracker';
 import Link from 'next/link';
 
 export const metadata = {
@@ -10,6 +11,7 @@ export const metadata = {
 export default function ThankYou() {
   return (
     <>
+      <ThankYouTracker />
       <Header />
       <main style={{ 
         padding: '120px 0', 
