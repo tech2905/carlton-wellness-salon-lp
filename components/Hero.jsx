@@ -11,16 +11,42 @@ export default function Hero() {
     setMessage('');
     
     const formData = new FormData(e.target);
+    const urlParams = new URLSearchParams(window.location.search);
+    
     const data = {
       fields: {
         name: formData.get('fname'),
         phone: formData.get('mobile'),
         email: formData.get('email'),
-        brand: 'Carlton Salon',
         city: formData.get('city'),
         state: formData.get('state'),
         capital: formData.get('capital'),
-        location: formData.get('location')
+        location: formData.get('location'),
+        consent: true,
+        brand: 'Carlton Salon',
+        brand_campaign: 'Carlton Salon',
+        campaign_id: urlParams.get('campaign_id') || '',
+        form_name: urlParams.get('form_name') || '',
+        ad_id: urlParams.get('ad_id') || '',
+        adset_id: urlParams.get('adset_id') || '',
+        utm_adset: urlParams.get('utm_adset') || '',
+        utm_campaign_set: urlParams.get('utm_campaign_set') || '',
+        utm_adgroup: urlParams.get('utm_adgroup') || '',
+        gclid: urlParams.get('gclid') || '',
+        form_source: urlParams.get('form_source') || '',
+        placement: urlParams.get('placement') || '',
+        loc_interest_ms: urlParams.get('loc_interest_ms') || '',
+        utm_network: urlParams.get('utm_network') || '',
+        form_id: urlParams.get('form_id') || '',
+        utm_adname: urlParams.get('utm_adname') || '',
+        utm_keyword: urlParams.get('utm_keyword') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        brand_product: urlParams.get('brand_product') || '',
+        auto_brand_updating: urlParams.get('auto_brand_updating') || '',
+        fbclid: urlParams.get('fbclid') || '',
+        page_url: window.location.href,
+        loc_physical_ms: urlParams.get('loc_physical_ms') || '',
+        utm_device: urlParams.get('utm_device') || ''
       }
     };
 
