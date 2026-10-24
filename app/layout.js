@@ -6,7 +6,7 @@ import './styles/legacy.css';
 import './styles/gallery.css';
 import './styles/testimonials.css';
 import './styles/footer.css';
-import GTM, { GTMNoScript } from '../components/GTM';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Carlton Wellness Group | Own a Premium Wellness Spa Franchise',
@@ -20,10 +20,27 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Liberation+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
-        <GTM />
+        
+        {/* Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">{`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://googletagmanager.com;
+          })(window,document,'script','dataLayer','GTM-M5PK8ZR8');
+        `}</Script>
       </head>
       <body>
-        <GTMNoScript />
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe 
+            src="https://googletagmanager.com"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
         {children}
       </body>
     </html>
